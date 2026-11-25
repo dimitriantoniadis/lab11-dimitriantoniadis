@@ -23,10 +23,7 @@ def main():
             data = conn.recv(1024)
             if not data:
                 continue
-            # TODO: send the message back REVERSED. `data` is bytes, e.g. b"hello".
-            #   Turn it into text, reverse it, and send the reversed text back with
-            #   conn.sendall(...). Example: "hello" -> "olleh".
-            pass
+            conn.sendall(data.decode()[::-1].encode())
 
 
 if __name__ == "__main__":
